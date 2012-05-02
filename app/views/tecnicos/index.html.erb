@@ -1,0 +1,39 @@
+<h1>Lista de técnicos</h1>
+<div class="well">
+    <h2>Busca</h2>
+    <%= form_tag tecnicos_path, :method => :get do %>
+        <%= search_field_tag :search, "",
+                             :placeholder => "Digite sua busca",
+                             :class => "input-medium search-query", :style => "width: 400px;" %>
+        <%= submit_tag "Buscar", :class => "btn" %> 
+    <% end %>
+</div>
+<table class="table">
+  <tr>
+    <th>Nome</th>
+    <th>Data de nascimento</th>
+    <th>Email</th>
+    <th>CREF</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tecnicos.each do |tecnico| %>
+  <tr>
+    <td><%= tecnico.nome %></td>
+    <td><%= tecnico.data_de_nascimento.strftime("%d-%m-%Y") %></td>
+    <td><%= tecnico.email %></td>
+    <td><%= tecnico.cref %></td>
+    <td><%= link_to 'Exibir', tecnico, :class => "btn btn-primary btn-mini" %></td>
+    <td><%= link_to 'Editar', edit_tecnico_path(tecnico), :class => "btn btn-warning btn-mini" %></td>
+    <td><%= link_to 'Apagar', tecnico, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger btn-mini" %></td>
+  </tr>
+<% end %>
+</table>
+<div class="offset4">
+    <%= will_paginate(@tecnicos, :class => "pagination btn-mini", :previous_label => "« Anterior", :next_label => "Próxima »") %>
+</div>
+<br />
+
+<%= link_to 'Adicionar Tecnico', new_tecnico_path, :class => "label label-info" %>

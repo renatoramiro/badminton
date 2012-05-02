@@ -1,0 +1,23 @@
+<h1>Listing modalidades</h1>
+
+<table>
+  <tr>
+    <th>Tipo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @modalidades.each do |modalidade| %>
+  <tr>
+    <td><%= modalidade.tipo %></td>
+    <td><%= link_to 'Show', modalidade %></td>
+    <td><%= link_to 'Edit', edit_modalidade_path(modalidade) %></td>
+    <td><%= link_to 'Destroy', modalidade, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Modalidade', new_modalidade_path %>

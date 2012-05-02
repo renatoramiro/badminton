@@ -1,0 +1,42 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+en:
+  errors:
+    messages:
+      not_found: "não encontrado"
+      already_confirmed: "já foi confirmado"
+      not_locked: "não está bloqueado"
+
+  devise:
+    failure:
+      unauthenticated: 'Você precisa logar-se ou cadastrar-se para continuar.'
+      unconfirmed: 'Você precisa confirmar sua conta antes de continuar.'
+      locked: 'Sua conta está bloqueada.'
+      invalid: 'E-mail ou senha inválida.'
+      invalid_token: 'Chave de autenticação inválida.'
+      timeout: 'Sua sessão espirou, por favor logue-se novamente para continuar.'
+      inactive: 'Sua conta ainda não foi ativada.'
+    sessions:
+      signed_in: 'Logado com sucesso.'
+      signed_out: 'Deslogado com sucesso.'
+    passwords:
+      send_instructions: 'Você receberá um email com instruções sobre a recuperação da senha em alguns minutos.'
+      updated: 'Sua senha foi alterada com sucesso. Agora você está logado.'
+    confirmations:
+      send_instructions: 'Você receberá um email com instruções sobre como recuperar sua conta em alguns minutos.'
+      confirmed: 'Sua conta foi confirmada com sucesso. Agora você está logado.'
+    registrations:
+      signed_up: 'Você se cadastrou com sucesso. Se habilitado, a confirmação será enviada para seu e-mail.'
+      updated: 'Você atualizou sua conta com sucesso.'
+      destroyed: 'Tchau! Sua conta foi cancelada com sucesso.'
+    unlocks:
+      send_instructions: 'Você receberá um e-mail com instruções sobre como desbloquear sua conta em alguns minutos.'
+      unlocked: 'Sua conta foi desbloqueada com sucesso. Você agora está logado.'
+    mailer:
+      confirmation_instructions:
+        subject: 'Informações de confirmação'
+      reset_password_instructions:
+        subject: 'Informações de recuperação de senha'
+      unlock_instructions:
+        subject: 'Informações de desbloqueio'
+  

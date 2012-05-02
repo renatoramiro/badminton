@@ -1,0 +1,27 @@
+<div class="well">
+  <h2>Editar Conta <%#= resource_name.to_s.humanize %></h2>
+
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div><b><%= f.label :email %></b>
+    <%= f.email_field :email %></div>
+
+    <div><b><%= f.label :password, "Senha" %></b>
+    <%= f.password_field :password, :autocomplete => "off" %></div>
+
+    <div><b><%= f.label :password_confirmation, "Confirmação da senha" %></b>
+    <%= f.password_field :password_confirmation %> <i class="paragrafo">(deixe em branco se você não quer mudar.)</i></div>
+
+    <div><b><%= f.label :current_password, "Senha atual" %></b>
+    <%= f.password_field :current_password %> <i class="paragrafo">(precisamos da su senha atual para confirmar as mudanças)</i></div>
+
+    <div><%= f.submit "Atualizar", :class => "btn", :style => "margin-top: 10px;" %></div>
+  <% end %>
+
+  <h3>Cancelar minha conta</h3>
+
+  <p>Não está feliz? <%= link_to "Cancelar minha conta", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+
+  <%= link_to "Voltar", :back %>
+</div>

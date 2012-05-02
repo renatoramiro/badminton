@@ -1,0 +1,21 @@
+<%= form_for(@modalidade) do |f| %>
+  <% if @modalidade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@modalidade.errors.count, "error") %> prohibited this modalidade from being saved:</h2>
+
+      <ul>
+      <% @modalidade.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tipo %><br />
+    <%= f.text_field :tipo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

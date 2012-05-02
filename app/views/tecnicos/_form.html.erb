@@ -1,0 +1,61 @@
+<%= form_for(@tecnico) do |f| %>
+  <%= error_messages_for @tecnico %>
+  <div class="row">
+    <div class="span4">
+      <h2>Informações do Árbitro</h2>
+      <div class="field">
+          <%= f.label :intituicao_de_ensino, "Instituição de Ensino" %>
+          <%= f.text_field :intituicao_de_ensino %>
+        </div>
+        <div class="field">
+          <%= f.label :cref, "CREF" %>
+          <%= f.text_field :cref %>
+        </div>
+    </div>
+    <div class="span4">
+      <h2>Informações Pessoais</h2>
+      <div class="field">
+          <%= f.label :nome %>
+          <%= f.text_field :nome %>
+        </div>
+        <div class="field">
+          <%= f.label :data_de_nascimento %>
+          <%= f.date_select :data_de_nascimento, :order => [:day, :month, :year], :start_year => 1930,
+                            :prompt => { :day => 'Selecione o dia', :month => 'Selecione o mês', :year => 'Selecione o ano' } %>
+        </div>
+        <div class="field">
+          <%= f.label :rg, "RG" %>
+          <%= f.text_field :rg %>
+        </div>
+        <div class="field">
+          <%= f.label :cpf, "CPF" %>
+          <%= f.text_field :cpf %>
+        </div>
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </div>
+      </div>
+      <div class="span4" style="margin-top: 42px;">
+        <div class="field">
+          <%= f.label :telefone %>
+          <%= f.text_field :telefone %>
+        </div>
+        <div class="field">
+          <%= f.label :celular %>
+          <%= f.text_field :celular %>
+        </div>
+        <div class="field">
+          <%= f.label :endereco_completo, "Endereço Completo" %>
+          <%= f.text_area :endereco_completo, :cols => 80, :rows => 10 %>
+        </div>
+    </div>
+  </div>
+  <br />
+  <div class="well">
+    <div style="margin-left: 380px;">
+      <%= f.submit "Enviar", :class => "btn" %>
+    </div>
+  </div>
+  <%= f.hidden_field :user_id %>
+<% end %>

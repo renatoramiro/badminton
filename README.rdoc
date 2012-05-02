@@ -1,0 +1,10 @@
+Projeto Badminton
+
+Início do desenvolvimento: 25-04-2012
+Fim do desenvolvimento: 02-05-2012
+
+** Desenvolvido em Rails **
+
+O que falta:
+
+~> Internacionalização

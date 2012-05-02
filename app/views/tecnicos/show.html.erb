@@ -1,0 +1,62 @@
+<%= show_notice(notice) %>
+<div class="span10">
+  <h1>Informações Detalhadas</h1>
+  <div class="row well"> 
+    <div class="span4">
+      <h2>Informações do Técnico</h2>
+      <p>
+        <b>Intituição de ensino:</b>
+        <%= @tecnico.intituicao_de_ensino %>
+      </p>
+
+      <p>
+        <b>CREF:</b>
+        <%= @tecnico.cref %>
+      </p>
+    </div>
+    <div class="span4">
+      <h2>Informações do Técnico</h2>
+      <p>
+        <b>Nome:</b>
+        <%= @tecnico.nome %>
+      </p>
+
+      <p>
+        <b>Data de nascimento:</b>
+        <%= @tecnico.data_de_nascimento.strftime("%d-%m-%Y") %>
+      </p>
+
+      <p>
+        <b>Telefone:</b>
+        <%= @tecnico.telefone %>
+      </p>
+
+      <p>
+        <b>Celular:</b>
+        <%= @tecnico.celular %>
+      </p>
+
+      <p>
+        <b>Email:</b>
+        <%= @tecnico.email %>
+      </p>
+
+      <p>
+        <b>Endereço completo:</b>
+        <%= @tecnico.endereco_completo %>
+      </p>
+
+      <p>
+        <b>RG:</b>
+        <%= @tecnico.rg %>
+      </p>
+
+      <p>
+        <b>CPF:</b>
+        <%= @tecnico.cpf %>
+      </p>
+    </div>
+  </div>
+  <%= link_to 'Editar', edit_tecnico_path(@tecnico), :class => "label label-warning" %> |
+  <%= link_to 'Voltar', tecnicos_path, :class => "label label-inverse" %>
+</div>

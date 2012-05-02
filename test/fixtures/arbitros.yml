@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nome: MyString
+  data_de_nascimento: 2012-04-25
+  email: MyString
+  endereco_completo: MyText
+  rg: MyString
+  cpf: MyString
+  cursos_de_arbitragem: MyText
+  ano_do_curso_de_arbitragem: 2012-04-25
+
+two:
+  nome: MyString
+  data_de_nascimento: 2012-04-25
+  email: MyString
+  endereco_completo: MyText
+  rg: MyString
+  cpf: MyString
+  cursos_de_arbitragem: MyText
+  ano_do_curso_de_arbitragem: 2012-04-25

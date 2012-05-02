@@ -1,0 +1,90 @@
+<%= form_for(@atleta) do |f| %>
+  <%= error_messages_for @atleta %>
+
+  <div class="row">
+    <div class="span4">
+      <h2>Informações do Atleta</h2>
+      <div class="field">
+        <%= f.label :codigo, "Código" %>
+        <%= f.text_field :codigo, :placeholder => "Código" %>
+      </div>
+      <div class="field">
+        <%= f.label :entidade_filiada %>
+        <%= f.text_field :entidade_filiada, :placeholder => "Entidade Filiada" %>
+      </div>
+      <div class="field">
+        <%= f.label :ranking %>
+        <%= f.number_field :ranking, :placeholder => "Ranking" %>
+      </div>
+      <div class="field">
+        <%= f.label :categoria %>
+        <%= f.select(:categoria, @categorias,
+                     :include_blank => true,
+                     :prompt => "Selecione a categoria") %>
+      </div>
+      <div class="field">
+        <%= f.label "Modalidade" %>
+        <ul>
+          <% @modalidades.each do |m| %>
+            <li><%= check_box_tag "atleta[modalidade_ids][]", m.id, @atleta.modalidades.include?(m) %> <%= m.tipo %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="span4">
+      <h2>Informações Pessoais</h2>
+      <div class="field">
+        <%= f.label :nome %>
+        <%= f.text_field :nome, :placeholder => "Nome" %>
+      </div>
+      <div class="row-fluid">
+        <div class="span5">
+          <%= f.label :data_de_nascimento %>
+          <%= f.date_select(:data_de_nascimento, :start_year => 1930,
+                            :prompt => { :day => 'Selecione o dia', :month => 'Selecione o mês', :year => 'Selecione o ano' },
+                            :order => [:day, :month, :year]) %></div>
+      </div>
+      <div class="field">
+        <%= f.label :nome_do_pai %>
+        <%= f.text_field :nome_do_pai, :placeholder => "Nome do pai" %>
+      </div>
+      <div class="field">
+        <%= f.label :nome_da_mae, "Nome da mãe" %>
+        <%= f.text_field :nome_da_mae, :placeholder => "Nome da mãe" %>
+      </div>
+      <div class="field">
+        <%= f.label :endereco, "Endereço Completo" %>
+        <%= f.text_area :endereco, :cols => 10, :rows => 4, :placeholder => "Endereço Completo" %>
+      </div>
+    </div>
+    <div class="span4" style="margin-top: 39px;">
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.text_field :email, :placeholder => "Email" %>
+      </div>
+      <div class="field">
+        <%= f.label :rg, "RG" %>
+        <%= f.text_field :rg, :placeholder => "RG" %>
+      </div>
+      <div class="field">
+        <%= f.label :cpf, "CPF" %>
+        <%= f.text_field :cpf, :placeholder => "RG" %>
+      </div>
+      <div class="field">
+        <%= f.label :telefone %>
+        <%= f.text_field :telefone, :placeholder => "Telefone" %>
+      </div>
+      <div class="field">
+        <%= f.label :celular %>
+        <%= f.text_field :celular, :placeholder => "Celular" %>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="well">
+    <div style="margin-left: 380px;">
+      <%= f.submit "Enviar", :class => "btn" %>
+    </div>
+  </div>
+  <%= f.hidden_field :user_id %>
+<% end %>

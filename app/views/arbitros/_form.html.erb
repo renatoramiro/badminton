@@ -1,0 +1,64 @@
+<%= form_for(@arbitro) do |f| %>
+  <%= error_messages_for @arbitro %>
+  <div class="row">
+    <div class="span4">
+      <h2>Informações do Árbitro</h2>
+      <div class="field">
+        <%= f.label :cursos_de_arbitragem %>
+        <%= f.text_area :cursos_de_arbitragem, :cols => 80, :rows => 10 %>
+      </div>
+      <div class="field">
+        <%= f.label :ano_do_curso_de_arbitragem %>
+        <%= f.date_select :ano_do_curso_de_arbitragem, :discard_day => true, :discard_month => true,
+                          :start_year => 1930,
+                          :prompt => { :year => 'Selecione o ano' } %>
+      </div>
+    </div>
+    <div class="span4">
+      <h2>Informações Pessoais</h2>
+      <div class="field">
+        <%= f.label :nome %>
+        <%= f.text_field :nome %>
+      </div>
+      <div class="field">
+        <%= f.label :data_de_nascimento %>
+        <%= f.date_select(:data_de_nascimento, :start_year => 1930,
+                              :prompt => { :day => 'Selecione o dia', :month => 'Selecione o mês', :year => 'Selecione o ano' },
+                              :order => [:day, :month, :year]) %>
+      </div>
+      <div class="field">
+        <%= f.label :rg, "RG" %>
+        <%= f.text_field :rg %>
+      </div>
+      <div class="field">
+        <%= f.label :cpf, "CPF" %>
+        <%= f.text_field :cpf %>
+      </div>
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
+    </div>
+    <div class="span4" style="margin-top: 42px;">
+      <div class="field">
+        <%= f.label :telefone %>
+        <%= f.text_field :telefone %>
+      </div>
+      <div class="field">
+        <%= f.label :celular %>
+        <%= f.text_field :celular %>
+      </div>
+      <div class="field">
+        <%= f.label :endereco_completo, "Endereço Completo" %>
+        <%= f.text_area :endereco_completo, :cols => 80, :rows => 10 %>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="well">
+    <div style="margin-left: 380px;">
+      <%= f.submit "Enviar", :class => "btn" %>
+    </div>
+  </div>
+  <%= f.hidden_field :user_id %>
+<% end %>
