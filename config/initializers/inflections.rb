@@ -15,4 +15,5 @@
 # end
 ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'atleta', 'atletas'
+	inflect.irregular 'erro', 'erros'
 end

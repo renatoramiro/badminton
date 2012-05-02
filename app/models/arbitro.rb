@@ -5,6 +5,9 @@ class Arbitro < ActiveRecord::Base
 
 	belongs_to :user
 
+	validates_presence_of :cpf, :rg, :data_de_nascimento, :nome, :celular, :ano_do_curso_de_arbitragem
+	validates_uniqueness_of :cpf
+
 	def self.search(busca)
     where("nome LIKE :termo OR celular LIKE :termo OR data_de_nascimento LIKE :termo", 
           :termo => "%#{busca}%")

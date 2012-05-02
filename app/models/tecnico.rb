@@ -6,6 +6,9 @@ class Tecnico < ActiveRecord::Base
 
 	belongs_to :user
 
+  validates_presence_of :cpf, :rg, :nome, :data_de_nascimento, :celular, :cref
+  validates_uniqueness_of :cpf, :cref
+
 	def self.search(busca)
     where("nome LIKE :termo OR intituicao_de_ensino LIKE :termo OR data_de_nascimento LIKE :termo OR cref LIKE :termo
     			OR email LIKE :termo", 

@@ -1,7 +1,14 @@
 <div class="well alert alert-error">
 	<% if resource.errors.any? %>
 	  <div id="error_explanation">
-	    <h2><%= pluralize(resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
+	    <h2>
+	    	<%= pluralize(resource.errors.count, "erro") %>
+	    	<% unless resource.errors.count > 1 %>
+	    		aconteceu.
+    		<% else %>
+	    		aconteceram.	
+	    	<% end -%>
+	    </h2>
 
 	    <ul>
 	    <% resource.errors.full_messages.each do |msg| %>
