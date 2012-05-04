@@ -59,3 +59,11 @@
   </div>
   <%= f.hidden_field :user_id %>
 <% end %>
+
+<script type="text/javascript">
+jQuery(function($){
+   $("#tecnico_cpf").mask("999.999.999-99");
+   $("#tecnico_telefone").mask("(99) 9999-9999");
+   $("#tecnico_celular").mask("(99) 9999-9999");
+});
+</script>

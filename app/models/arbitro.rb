@@ -9,7 +9,6 @@ class Arbitro < ActiveRecord::Base
 	validates_uniqueness_of :cpf
 
 	def self.search(busca)
-    where("nome LIKE :termo OR celular LIKE :termo OR cpf LIKE :termo", 
-          :termo => "%#{busca}%")
+    where("nome ILIKE :termo OR celular ILIKE :termo OR cpf ILIKE :termo", :termo => "%#{busca}%")
   end
 end

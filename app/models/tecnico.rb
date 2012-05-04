@@ -10,8 +10,8 @@ class Tecnico < ActiveRecord::Base
   validates_uniqueness_of :cpf, :cref
 
 	def self.search(busca)
-    where("nome LIKE :termo OR intituicao_de_ensino LIKE :termo OR cref LIKE :termo
-    			OR email LIKE :termo", 
+    where("nome ILIKE :termo OR intituicao_de_ensino ILIKE :termo OR cref ILIKE :termo
+    			OR email ILIKE :termo", 
           :termo => "%#{busca}%")
   end
 end
