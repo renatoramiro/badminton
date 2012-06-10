@@ -1,0 +1,22 @@
+<h2>Relatório#árbitros</h2>
+<div class="clear"></div>
+<hr />
+<div class="grid_12">
+	<table width="100%">
+	  <tr width="100%" align="center">
+	    <th>Nome</th>
+	    <th>Data de nascimento</th>
+	    <th>Email</th>
+	    <th>Telefone</th>
+	  </tr>
+
+	<% @arbitros.each do |arbitro| %>
+	  <tr width="100%" align="center">
+	    <td><%= arbitro.nome %></td>
+	    <td><%= arbitro.data_de_nascimento.strftime("%d-%m-%Y") %></td>
+	    <td><%= arbitro.email %></td>
+	    <td><%= arbitro.telefone %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>

@@ -8,6 +8,10 @@ class Arbitro < ActiveRecord::Base
 	validates_presence_of :cpf, :rg, :data_de_nascimento, :nome, :celular, :ano_do_curso_de_arbitragem
 	validates_uniqueness_of :cpf
 
+	def self.paginar(param)
+		paginate(:page => param, :per_page => 10)
+	end
+
 	def self.search(busca)
     where("nome ILIKE :termo OR celular ILIKE :termo OR cpf ILIKE :termo", :termo => "%#{busca}%")
   end

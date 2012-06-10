@@ -86,6 +86,7 @@
     </div>
   </div>
   <%= link_to 'Editar', edit_atleta_path(@atleta), :class => "label label-warning" %> |
-  <%= link_to 'Voltar', atletas_path, :class => "label label-inverse" %>
+  <%= link_to 'Voltar', atletas_path, :class => "label label-inverse" %> | 
+  <%= link_to "Relatório detalhado", relatorio_atleta_path(:id => @atleta.id), :class => "btn btn-success"  %>
   </div>
 </div>

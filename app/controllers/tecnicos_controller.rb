@@ -1,3 +1,4 @@
+# encoding: utf-8
 class TecnicosController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
@@ -6,7 +7,7 @@ class TecnicosController < ApplicationController
   def index
     @tecnicos = current_user.tecnicos.scoped
     @tecnicos = @tecnicos.search(params[:search]) if params[:search].present?
-    @tecnicos = @tecnicos.paginate(:page => params[:page], :per_page => 10)
+    @tecnicos = @tecnicos.paginar(params[:page]).order(:nome)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -49,7 +50,7 @@ class TecnicosController < ApplicationController
 
     respond_to do |format|
       if @tecnico.save
-        format.html { redirect_to @tecnico, notice: 'Tecnico was successfully created.' }
+        format.html { redirect_to @tecnico, notice: 'Técnico foi criado com sucesso.' }
         format.json { render json: @tecnico, status: :created, location: @tecnico }
       else
         format.html { render action: "new" }
@@ -66,7 +67,7 @@ class TecnicosController < ApplicationController
 
     respond_to do |format|
       if @tecnico.update_attributes(params[:tecnico])
-        format.html { redirect_to @tecnico, notice: 'Tecnico was successfully updated.' }
+        format.html { redirect_to @tecnico, notice: 'Técnico foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

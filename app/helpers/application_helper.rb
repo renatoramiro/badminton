@@ -2,7 +2,7 @@ module ApplicationHelper
 
 	def show_notice(notice)
 		if notice
-			content_tag :div, :class => "span4" do
+			content_tag :div, :class => "span5" do
 				html = ""
 				html += content_tag :div, h(notice), :class => "alert alert-success"
 				html.html_safe

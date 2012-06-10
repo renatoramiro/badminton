@@ -17,6 +17,10 @@ class Atleta < ActiveRecord::Base
 
   validates_uniqueness_of :cpf, :email
 
+  def self.paginar(param)
+    paginate(:page => param, :per_page => 10)
+  end
+
   def self.search(busca)
     where("nome ILIKE :termo OR nome_da_mae ILIKE :termo OR nome_do_pai ILIKE :termo OR codigo ILIKE :termo", 
           :termo => "%#{busca}%")

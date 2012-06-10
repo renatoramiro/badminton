@@ -1,0 +1,22 @@
+<h2>Relatório#técnicos</h2>
+<div class="clear"></div>
+<hr />
+<div class="grid_12">
+	<table width="100%">
+	  <tr width="100%" align="center">
+	    <th>Nome</th>
+	    <th>Data de nascimento</th>
+	    <th>Email</th>
+	    <th>CREF</th>
+	  </tr>
+
+	<% @tecnicos.each do |tecnico| %>
+	  <tr width="100%" align="center">
+	    <td><%= tecnico.nome %></td>
+	    <td><%= tecnico.data_de_nascimento.strftime("%d-%m-%Y") %></td>
+	    <td><%= tecnico.email %></td>
+	    <td><%= tecnico.cref %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>

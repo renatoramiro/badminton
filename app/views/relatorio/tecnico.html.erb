@@ -1,0 +1,57 @@
+<h2>Relatório#técnico</h2>
+<div class="clear"></div>
+<hr />
+<div class="grid_6">
+	<h2><u>Informações Pessoais</u></h2>
+  <p>
+        <b>Nome:</b>
+        <%= @tecnico.nome %>
+      </p>
+
+      <p>
+        <b>Data de nascimento:</b>
+        <%= @tecnico.data_de_nascimento.strftime("%d-%m-%Y") %>
+      </p>
+
+      <p>
+        <b>Telefone:</b>
+        <%= @tecnico.telefone %>
+      </p>
+
+      <p>
+        <b>Celular:</b>
+        <%= @tecnico.celular %>
+      </p>
+
+      <p>
+        <b>Email:</b>
+        <%= @tecnico.email %>
+      </p>
+
+      <p>
+        <b>Endereço completo:</b>
+        <%= @tecnico.endereco_completo %>
+      </p>
+
+      <p>
+        <b>RG:</b>
+        <%= @tecnico.rg %>
+      </p>
+
+      <p>
+        <b>CPF:</b>
+        <%= @tecnico.cpf %>
+      </p>
+</div>
+<div class="grid_6">
+	<h2><u>Informações do Técnico</u></h2>
+  <p>
+    <b>Intituição de ensino:</b>
+    <%= @tecnico.intituicao_de_ensino %>
+  </p>
+
+  <p>
+    <b>CREF:</b>
+    <%= @tecnico.cref %>
+  </p>
+</div>

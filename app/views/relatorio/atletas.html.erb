@@ -1,0 +1,24 @@
+<h2>Relatório#atletas</h2>
+<div class="clear"></div>
+<hr />
+<div class="grid_12">
+	<table width="100%">
+	  <tr width="100%" align="center">
+	    <th>Código</th>
+	    <th>Nome</th>
+	    <th>Data de Nascimento</th>
+	    <th>Telefone</th>
+	    <th>Nome da mãe</th>
+	  </tr>
+
+	<% @atletas.each do |atleta| %>
+	  <tr width="100%" align="center">
+	    <td><%= atleta.codigo %></td>
+	    <td><%= atleta.nome %></td>
+	    <td><%= atleta.data_de_nascimento.strftime("%d-%m-%Y") %></td>
+	    <td><%= atleta.telefone %></td>
+	    <td><%= atleta.nome_da_mae %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>

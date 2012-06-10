@@ -10,7 +10,7 @@ class AtletasController < ApplicationController
 
     @atletas = current_user.atletas.scoped
     @atletas = @atletas.search(params[:search]) if params[:search].present?
-    @atletas = @atletas.paginate(:page => params[:page], :per_page => 10)
+    @atletas = @atletas.paginar(params[:page]).order(:nome)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -53,7 +53,7 @@ class AtletasController < ApplicationController
 
     respond_to do |format|
       if @atleta.save
-        format.html { redirect_to @atleta, notice: 'Atleta was successfully created.' }
+        format.html { redirect_to @atleta, notice: 'Atleta foi criado com sucesso.' }
         format.json { render json: @atleta, status: :created, location: @atleta }
       else
         format.html { render action: "new" }
@@ -70,7 +70,7 @@ class AtletasController < ApplicationController
 
     respond_to do |format|
       if @atleta.update_attributes(params[:atleta])
-        format.html { redirect_to @atleta, notice: 'Atleta was successfully updated.' }
+        format.html { redirect_to @atleta, notice: 'Atleta foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -15,7 +15,7 @@
       </p>
     </div>
     <div class="span4">
-      <h2>Informações do Técnico</h2>
+      <h2>Informações Pessoais</h2>
       <p>
         <b>Nome:</b>
         <%= @tecnico.nome %>
@@ -58,5 +58,6 @@
     </div>
   </div>
   <%= link_to 'Editar', edit_tecnico_path(@tecnico), :class => "label label-warning" %> |
-  <%= link_to 'Voltar', tecnicos_path, :class => "label label-inverse" %>
+  <%= link_to 'Voltar', tecnicos_path, :class => "label label-inverse" %> | 
+  <%= link_to "Relatório detalhado", relatorio_tecnico_path(:id => @tecnico.id), :class => 'btn btn-success' %>
 </div>

@@ -59,6 +59,7 @@
 </div>
 
 <%= link_to 'Editar', edit_arbitro_path(@arbitro), :class => "label label-warning" %> |
-<%= link_to 'Voltar', arbitros_path, :class => "label label-inverse" %>
+<%= link_to 'Voltar', arbitros_path, :class => "label label-inverse" %> | 
+<%= link_to "Relatório detalhado", relatorio_arbitro_path(:id => @arbitro.id), :class => 'btn btn-success' %>
 </div>
 

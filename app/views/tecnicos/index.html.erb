@@ -1,4 +1,4 @@
-<h1>Lista de técnicos</h1>
+<h1>Lista de Técnicos</h1>
 <div class="well">
     <h2>Busca</h2>
     <%= form_tag tecnicos_path, :method => :get do %>
@@ -17,6 +17,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @tecnicos.each do |tecnico| %>
@@ -31,9 +32,10 @@
   </tr>
 <% end %>
 </table>
-<div class="offset4">
+<div style="margin-left: 280px;">
     <%= will_paginate(@tecnicos, :class => "pagination btn-mini", :previous_label => "« Anterior", :next_label => "Próxima »") %>
 </div>
 <br />
 
-<%= link_to 'Adicionar Tecnico', new_tecnico_path, :class => "label label-info" %>
+<%= link_to 'Adicionar Técnico', new_tecnico_path, :class => "label label-info" %> | 
+<%= link_to "Relatório de Técnicos", relatorio_tecnicos_path, :class => 'btn btn-success' %>

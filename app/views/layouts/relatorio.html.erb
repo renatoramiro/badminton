@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Badminton - Relatório detalhado</title>
+  <%= stylesheet_link_tag    "960", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="container_12">
+	  <%= yield %>
+  </div>
+	<hr />
+	<footer style="margin-left: 37%">
+	  <p>&copy; <%= Date.today.year %> - Desenvolvido por <u>Startup Seven</u></p> 
+	</footer>
+</body>
+</html>

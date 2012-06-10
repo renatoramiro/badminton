@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ArbitrosController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
@@ -6,7 +7,7 @@ class ArbitrosController < ApplicationController
   def index
     @arbitros = current_user.arbitros.scoped
     @arbitros = @arbitros.search(params[:search]) if params[:search].present?
-    @arbitros = @arbitros.paginate(:page => params[:page], :per_page => 10)
+    @arbitros = @arbitros.paginar(params[:page]).order(:nome)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -49,7 +50,7 @@ class ArbitrosController < ApplicationController
 
     respond_to do |format|
       if @arbitro.save
-        format.html { redirect_to @arbitro, notice: 'Arbitro was successfully created.' }
+        format.html { redirect_to @arbitro, notice: 'Árbitro foi criado com sucesso.' }
         format.json { render json: @arbitro, status: :created, location: @arbitro }
       else
         format.html { render action: "new" }
@@ -66,7 +67,7 @@ class ArbitrosController < ApplicationController
 
     respond_to do |format|
       if @arbitro.update_attributes(params[:arbitro])
-        format.html { redirect_to @arbitro, notice: 'Arbitro was successfully updated.' }
+        format.html { redirect_to @arbitro, notice: 'Árbitro foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

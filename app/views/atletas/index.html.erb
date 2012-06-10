@@ -1,4 +1,4 @@
-<h1>Lista de atletas</h1>
+<h1>Lista de Atletas</h1>
 <div class="well">
     <h2>Busca</h2>
     <%= form_tag atletas_path, :method => :get do %>
@@ -39,5 +39,8 @@
 </div>
 <br />
 <div>
-    <p><%= link_to 'Adicionar Atleta', new_atleta_path,  :class => "label label-info" %></p>
+    <p>
+      <%= link_to 'Adicionar Atleta', new_atleta_path,  :class => "label label-info" %> | 
+      <%= link_to "Relatório de Atletas", relatorio_atletas_path, :class => 'btn btn-success' %>
+    </p>
 </div>

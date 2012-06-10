@@ -1,0 +1,86 @@
+<h2>Relatório#atleta</h2>
+<div class="clear"></div>
+<hr />
+<div class="grid_6">
+	<h2><u>Informações Pessoais</u></h2>
+  <p>
+        <b>Nome:</b>
+        <%= @atleta.nome %>
+      </p>
+
+      <p>
+        <b>Telefone:</b>
+        <%= @atleta.telefone %>
+      </p>
+
+      <p>
+        <b>Celular:</b>
+        <%= @atleta.celular %>
+      </p>
+
+      <p>
+        <b>Email:</b>
+        <%= @atleta.email %>
+      </p>
+
+      <p>
+        <b>Data de nascimento:</b>
+        <%= @atleta.data_de_nascimento.strftime("%d-%m-%Y") %>
+      </p>
+
+      <p>
+        <b>Endereço Completo:</b>
+        <%= @atleta.endereco %>
+      </p>
+
+      <p>
+        <b>RG:</b>
+        <%= @atleta.rg %>
+      </p>
+
+      <p>
+        <b>CPF:</b>
+        <%= @atleta.cpf %>
+      </p>
+
+      <p>
+        <b>Nome do pai:</b>
+        <%= @atleta.nome_do_pai %>
+      </p>
+
+      <p>
+        <b>Nome da mãe:</b>
+        <%= @atleta.nome_da_mae %>
+      </p>
+</div>
+<div class="grid_6">
+	<h2><u>Informações do Atleta</u></h2>
+  <p>
+        <b>Código:</b>
+        <%= @atleta.codigo %>
+      </p>
+      <p>
+        <b>Entidade filiada:</b>
+        <%= @atleta.entidade_filiada %>
+      </p>
+
+      <p>
+        <b>Ranking:</b>
+        <%= @atleta.ranking %>
+      </p>
+
+      <p>
+        <b>Categoria:</b>
+        <%= @atleta.categoria %>
+      </p>
+
+      <p>
+        <b>Modalidades:</b><br />
+        <ul>
+        <% @atleta.modalidades.each do |mod| %>
+          <li><%= mod.tipo %></li>
+        <% end -%>
+        </ul>
+      </p>
+</div>
+<div class="clear"></div>

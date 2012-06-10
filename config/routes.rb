@@ -1,4 +1,17 @@
 Badminton::Application.routes.draw do
+
+  get "relatorio/atleta"
+
+  get "relatorio/arbitro"
+
+  get "relatorio/tecnico"
+
+  get "relatorio/arbitros"
+
+  get "relatorio/atletas"
+
+  get "relatorio/tecnicos"
+
   get "administracao/index"
 
   devise_for :users
