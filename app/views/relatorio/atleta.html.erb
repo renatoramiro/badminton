@@ -10,11 +10,6 @@
 <hr />
 <div class="grid_6">
   <h2><u>Informações do Atleta</u></h2>
-  <% if @atleta.photo? %>
-  <p>
-    <%= image_tag @atleta.photo.url(:thumb) %>
-  </p>
-  <% end -%>
   <p>
     <b>Código:</b>
     <%= @atleta.codigo %>

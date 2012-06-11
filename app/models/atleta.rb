@@ -5,7 +5,7 @@ class Atleta < ActiveRecord::Base
   								:nome, :nome_da_mae, :nome_do_pai,
   								:ranking, :rg, :modalidade_ids,
   								:celular, :telefone,
-  								:user_id, :photo, :image_delete
+  								:user_id#, :photo, :image_delete
   								
 	has_and_belongs_to_many :modalidades
 
@@ -17,9 +17,9 @@ class Atleta < ActiveRecord::Base
 
   validates_uniqueness_of :cpf, :email
 
-  has_attached_file :photo, :styles => { :thumb => "150x150>" },
-                    :url  => "/assets/products/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
+  #has_attached_file :photo, :styles => { :thumb => "150x150>" },
+  #                  :url  => "/assets/products/:id/:style/:basename.:extension",
+  #                  :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
 
   validates_attachment_presence :photo
   validates_attachment_size :photo, :in => 0..300.kilobytes
