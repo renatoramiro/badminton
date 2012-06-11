@@ -18,12 +18,8 @@ class Atleta < ActiveRecord::Base
   validates_uniqueness_of :cpf, :email
 
   has_attached_file :photo, :styles => { :thumb => "150x150>" },
-                    :storage => :s3,
-                    :bucket => ENV['sofbadminton'],
-                    :s3_credentials => {
-                      :access_key_id => ENV['AKIAJLTZX4JICFL5ZNWQ'],
-                      :secret_access_key => ENV['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']
-                    }
+                    :url  => "/assets/products/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
 
   validates_attachment_presence :photo
   validates_attachment_size :photo, :in => 0..300.kilobytes
