@@ -1,10 +1,18 @@
-<%= form_for(@atleta) do |f| %>
+<%= form_for @atleta, :html => { :multipart => true} do |f| %>
   <%= error_messages_for @atleta %>
 
   <div class="row">
     <div class="span4">
       <h2>Informações do Atleta</h2>
       <div class="field">
+        <%= f.label :photo, "Foto" %>
+        <%= f.file_field :photo %>
+        <%- unless @atleta.new_record? || !@atleta.photo? -%>
+          <br />
+          <%= f.check_box :image_delete %> <%= f.label "Apagar imagem?" %> <b><%= @atleta.photo_file_name %></b>?
+        <%- end -%>
+      </div>
+      <div class="field" style="margin-top: 20px;">
         <%= f.label :codigo, "Código" %>
         <%= f.text_field :codigo, :placeholder => "Código" %>
       </div>
