@@ -1,5 +1,7 @@
 # encoding: utf-8
 class RelatorioController < ApplicationController
+  before_filter :authenticate_user!
+
   def atleta
   	@atleta = Atleta.find(params[:id])
   	unless current_user.atletas.include?(@atleta)
