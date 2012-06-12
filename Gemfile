@@ -11,6 +11,7 @@ gem 'thin'
 gem "will_paginate"
 gem 'paperclip'
 gem 'aws-s3'
+gem 'aws-sdk'
 
 # Gems used only for assets and not required
 # in production environments by default.

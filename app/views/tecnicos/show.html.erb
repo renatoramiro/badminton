@@ -5,6 +5,9 @@
     <div class="span4">
       <h2>Informações do Técnico</h2>
       <p>
+        <%= image_tag @tecnico.photo.url, :class => "image" if @tecnico.photo? %>
+      </p>
+      <p>
         <b>Intituição de ensino:</b>
         <%= @tecnico.intituicao_de_ensino %>
       </p>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120427004024) do
+ActiveRecord::Schema.define(:version => 20120612153058) do
 
   create_table "arbitros", :force => true do |t|
     t.string   "nome"
@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(:version => 20120427004024) do
     t.string   "telefone"
     t.string   "celular"
     t.integer  "user_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "arbitros", ["user_id"], :name => "index_arbitros_on_user_id"
@@ -49,6 +53,10 @@ ActiveRecord::Schema.define(:version => 20120427004024) do
     t.string   "telefone"
     t.string   "celular"
     t.integer  "user_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "atletas", ["user_id"], :name => "index_atletas_on_user_id"
@@ -78,6 +86,10 @@ ActiveRecord::Schema.define(:version => 20120427004024) do
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.integer  "user_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "tecnicos", ["user_id"], :name => "index_tecnicos_on_user_id"

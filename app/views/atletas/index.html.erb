@@ -16,6 +16,7 @@
     <th>Data de Nascimento</th>
     <th>Telefone</th>
     <th>Nome da mãe</th>
+    <th>Possiu foto?</th>
     <th></th>
     <th></th>
     <th></th>
@@ -28,6 +29,13 @@
     <td><%= atleta.data_de_nascimento.strftime("%d-%m-%Y") %></td>
     <td><%= atleta.telefone %></td>
     <td><%= atleta.nome_da_mae %></td>
+    <td>
+      <% if atleta.photo? %>
+      <label class="label label-success" style="padding-left: 35px; padding-top: 3px;">SIM</label>
+      <% else %>
+      <label class="label label-important" style="padding-left: 35px; padding-top: 3px;">NÃO</label>
+      <% end -%>
+    </td>
     <td><%= link_to 'Exibir', atleta, :class => "btn btn-primary btn-mini" %></td>
     <td><%= link_to 'Editar', edit_atleta_path(atleta), :class => "btn btn-warning btn-mini" %></td>
     <td><%= link_to 'Apagar', atleta, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger btn-mini" %></td>

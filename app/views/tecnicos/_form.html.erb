@@ -1,9 +1,18 @@
-<%= form_for(@tecnico) do |f| %>
+<%= form_for @tecnico, :html => { :multipart => true} do |f| %>
   <%= error_messages_for @tecnico %>
   <div class="row">
     <div class="span4">
       <h2>Informações do Árbitro</h2>
       <div class="field">
+        <b><%= f.label :photo, "Foto:" %></b><br />
+        <%= f.file_field :photo %>
+      </div>
+      <div class="field">
+        <%- unless @tecnico.new_record? || !@tecnico.photo? -%>
+          <%= f.check_box :image_delete %> <%= f.label "Apagar imagem:" %> <b><%= @tecnico.photo_file_name %></b>?
+        <%- end -%>
+      </div>
+      <div class="field" style="margin-top: 20px;">
           <%= f.label :intituicao_de_ensino, "Instituição de Ensino" %>
           <%= f.text_field :intituicao_de_ensino %>
         </div>

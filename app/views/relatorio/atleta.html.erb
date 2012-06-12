@@ -1,15 +1,11 @@
-<style type="text/css">
-  img {
-    width:150px;height:120px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;border-radius: 10px;
-  }
-</style>
 <h2>Relatório#atleta</h2>
 <div class="clear"></div>
 <hr />
 <div class="grid_6">
   <h2><u>Informações do Atleta</u></h2>
+  <p>
+     <%= image_tag @atleta.photo.url, :class => "image" if @atleta.photo? %>
+  </p>
   <p>
     <b>Código:</b>
     <%= @atleta.codigo %>

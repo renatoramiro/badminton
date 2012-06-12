@@ -2,6 +2,21 @@
 <div class="clear"></div>
 <hr />
 <div class="grid_6">
+  <h2><u>Informações do Árbitro</u></h2>
+  <p>
+    <%= image_tag @arbitro.photo.url, :class => "image" if @arbitro.photo? %>
+  </p>
+  <p>
+    <b>Cursos de arbitragem:</b>
+    <%= @arbitro.cursos_de_arbitragem %>
+  </p>
+
+  <p>
+    <b>Ano do curso de arbitragem:</b>
+    <%= @arbitro.ano_do_curso_de_arbitragem.strftime("%Y") %>
+  </p>
+</div>
+<div class="grid_6">
 	<h2><u>Informações Pessoais</u></h2>
   <p>
     <b>Nome:</b>
@@ -41,18 +56,6 @@
   <p>
     <b>CPF:</b>
     <%= @arbitro.cpf %>
-  </p>
-</div>
-<div class="grid_6">
-	<h2><u>Informações do Árbitro</u></h2>
-  <p>
-    <b>Cursos de arbitragem:</b>
-    <%= @arbitro.cursos_de_arbitragem %>
-  </p>
-
-  <p>
-    <b>Ano do curso de arbitragem:</b>
-    <%= @arbitro.ano_do_curso_de_arbitragem.strftime("%Y") %>
   </p>
 </div>
 <div class="clear"></div>

@@ -14,6 +14,7 @@
     <th>Data de nascimento</th>
     <th>Email</th>
     <th>Telefone</th>
+    <th>Possui foto?</th>
     <th></th>
     <th></th>
     <th></th>
@@ -25,6 +26,13 @@
     <td><%= arbitro.data_de_nascimento.strftime("%d-%m-%Y") %></td>
     <td><%= arbitro.email %></td>
     <td><%= arbitro.telefone %></td>
+    <td>
+      <% if arbitro.photo? %>
+      <label class="label label-success" style="padding-left: 22px; padding-top: 3px;">SIM</label>
+      <% else %>
+      <label class="label label-important" style="padding-left: 22px; padding-top: 3px;">NÃO</label>
+      <% end -%>
+    </td>
     <td><%= link_to 'Exibir', arbitro, :class => "btn btn-primary btn-mini" %></td>
     <td><%= link_to 'Editar', edit_arbitro_path(arbitro), :class => "btn btn-warning btn-mini" %></td>
     <td><%= link_to 'Apagar', arbitro, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger btn-mini" %></td>

@@ -14,7 +14,7 @@
     <th>Data de nascimento</th>
     <th>Email</th>
     <th>CREF</th>
-    <th></th>
+    <th>Possui foto?</th>
     <th></th>
     <th></th>
     <th></th>
@@ -26,6 +26,13 @@
     <td><%= tecnico.data_de_nascimento.strftime("%d-%m-%Y") %></td>
     <td><%= tecnico.email %></td>
     <td><%= tecnico.cref %></td>
+    <td>
+      <% if tecnico.photo? %>
+      <label class="label label-success" style="padding-left: 38px; padding-top: 3px;">SIM</label>
+      <% else %>
+      <label class="label label-important" style="padding-left: 38px; padding-top: 3px;">NÃO</label>
+      <% end -%>
+    </td>
     <td><%= link_to 'Exibir', tecnico, :class => "btn btn-primary btn-mini" %></td>
     <td><%= link_to 'Editar', edit_tecnico_path(tecnico), :class => "btn btn-warning btn-mini" %></td>
     <td><%= link_to 'Apagar', tecnico, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger btn-mini" %></td>

@@ -1,16 +1,12 @@
-<style type="text/css">
-  img {
-    width:150px;height:120px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;border-radius: 10px;
-  }
-</style>
 <%= show_notice(notice) %>
 <div class="span10">
   <h1>Informações Detalhadas</h1>
   <div class="row well"> 
     <div class="span4">
       <h2>Informações do Atleta</h2>
+      <p>
+        <%= image_tag @atleta.photo.url, :class => "image" if @atleta.photo? %>
+      </p>
       <p>
         <b>Código:</b>
         <%= @atleta.codigo %>

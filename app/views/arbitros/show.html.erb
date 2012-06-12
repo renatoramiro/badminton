@@ -5,6 +5,9 @@
     <div class="span4">
       <h2>Informações do Árbitro</h2>
       <p>
+        <%= image_tag @arbitro.photo.url , :class => "image"if @arbitro.photo? %>
+      </p>
+      <p>
         <b>Cursos de arbitragem:</b>
         <%= @arbitro.cursos_de_arbitragem %>
       </p>
