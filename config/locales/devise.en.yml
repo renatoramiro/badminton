@@ -12,7 +12,7 @@ en:
       unauthenticated: 'Você precisa logar-se ou cadastrar-se para continuar.'
       unconfirmed: 'Você precisa confirmar sua conta antes de continuar.'
       locked: 'Sua conta está bloqueada.'
-      invalid: 'E-mail ou senha inválida.'
+      invalid: 'Email ou senha inválida.'
       invalid_token: 'Chave de autenticação inválida.'
       timeout: 'Sua sessão espirou, por favor logue-se novamente para continuar.'
       inactive: 'Sua conta ainda não foi ativada.'

@@ -21,7 +21,7 @@ class Atleta < ActiveRecord::Base
                     :storage => :s3, :s3_credentials => S3_CREDENTIALS,
                     :path => "/system/:class/:id/:style/:basename.:extension"
 
-  validates_attachment_size :photo, :in => 0..300.kilobytes
+  validates_attachment_size :photo, :in => 0..100.kilobytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']                    
 
   def self.paginar(param)

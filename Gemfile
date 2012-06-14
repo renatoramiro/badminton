@@ -8,10 +8,13 @@ gem 'rails', '3.2.3'
 gem 'pg'
 gem 'thin'
 
-gem "will_paginate"
+gem 'will_paginate', ">=3.0.pre2"
 gem 'paperclip'
 gem 'aws-s3'
 gem 'aws-sdk'
+
+gem 'activeadmin'
+gem "meta_search",    '>= 1.1.0.pre'
 
 # Gems used only for assets and not required
 # in production environments by default.
