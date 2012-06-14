@@ -1,5 +1,6 @@
 #encoding: utf-8
 ActiveAdmin.register User do
+  menu :label => "Usuários"
   filter :email
   filter :created_at
 
