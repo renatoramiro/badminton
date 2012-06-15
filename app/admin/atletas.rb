@@ -5,6 +5,7 @@ ActiveAdmin.register Atleta do
 	filter :celular
 	filter :nome_da_mae
 	filter :data_de_nascimento
+  fiter "CPF", :cpf
 
   index do
   	column :nome
