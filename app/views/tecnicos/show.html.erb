@@ -5,7 +5,11 @@
     <div class="span4">
       <h2>Informações do Técnico</h2>
       <p>
-        <%= image_tag @tecnico.photo.url, :class => "image" if @tecnico.photo? %>
+        <% if @tecnico.photo? %>
+          <%= image_tag @tecnico.photo.url, :class => "image" %>
+        <% else %>
+          <%= image_tag 'no-image.png', :class => "image" %>
+        <% end -%>
       </p>
       <p>
         <b>Intituição de ensino:</b>
@@ -17,7 +21,7 @@
         <%= @tecnico.cref %>
       </p>
     </div>
-    <div class="span4">
+    <div class="span5">
       <h2>Informações Pessoais</h2>
       <p>
         <b>Nome:</b>
@@ -26,7 +30,7 @@
 
       <p>
         <b>Data de nascimento:</b>
-        <%= @tecnico.data_de_nascimento.strftime("%d-%m-%Y") %>
+        <%= @tecnico.data_de_nascimento.strftime("%d/%m/%Y") %>
       </p>
 
       <p>
@@ -46,7 +50,7 @@
 
       <p>
         <b>Endereço completo:</b>
-        <%= @tecnico.endereco_completo %>
+        <%= "#{@tecnico.rua}, #{@tecnico.numero}, #{@tecnico.bairro}, #{@tecnico.cidade}, #{@tecnico.estado} - #{@tecnico.cep}" %>
       </p>
 
       <p>

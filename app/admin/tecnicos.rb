@@ -5,6 +5,7 @@ ActiveAdmin.register Tecnico do
 	filter :celular
 	filter :email
 	filter :data_de_nascimento
+  filter :cpf
 
   index do
   	column :nome

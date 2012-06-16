@@ -1,11 +1,12 @@
 class Atleta < ActiveRecord::Base
   attr_accessible :categoria, :codigo, :cpf,
   								:data_de_nascimento, :email,
-  								:endereco, :entidade_filiada,
+  								:entidade_filiada,
   								:nome, :nome_da_mae, :nome_do_pai,
   								:ranking, :rg, :modalidade_ids,
   								:celular, :telefone,
-  								:user_id, :photo, :image_delete
+  								:user_id, :photo, :image_delete,
+                  :rua, :numero, :bairro, :cidade, :estado, :cep
   								
 	has_and_belongs_to_many :modalidades
 
@@ -13,15 +14,17 @@ class Atleta < ActiveRecord::Base
 
   validates_presence_of :codigo, :nome, :cpf, :rg,
                         :data_de_nascimento, :email,
-                        :nome_da_mae, :celular, :telefone
+                        :nome_da_mae, :celular
 
   validates_uniqueness_of :cpf, :email
+
+  validates_numericality_of :numero, :greater_than => 0, :message => "deve ser maior que zero."
 
   has_attached_file :photo,
                     :storage => :s3, :s3_credentials => S3_CREDENTIALS,
                     :path => "/system/:class/:id/:style/:basename.:extension"
 
-  validates_attachment_size :photo, :in => 0..100.kilobytes
+  validates_attachment_size :photo, :in => 0..100.kilobytes, :message => "deve ser menor do que 100KB"
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']                    
 
   def self.paginar(param)

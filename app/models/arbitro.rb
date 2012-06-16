@@ -1,18 +1,20 @@
 class Arbitro < ActiveRecord::Base
   attr_accessible :ano_do_curso_de_arbitragem, :cpf, :cursos_de_arbitragem,
-  								:data_de_nascimento, :email, :endereco_completo, :nome, :rg,
-  								:telefone, :celular, :user_id, :photo, :image_delete
+  								:data_de_nascimento, :email, :nome, :rg,
+  								:telefone, :celular, :user_id, :photo, :image_delete,
+                  :rua, :numero, :bairro, :cidade, :estado, :cep
 
 	belongs_to :user
 
 	validates_presence_of :cpf, :rg, :data_de_nascimento, :nome, :celular, :ano_do_curso_de_arbitragem
 	validates_uniqueness_of :cpf
+  validates_numericality_of :numero, :greater_than => 0, :message => "deve ser maior que zero."
 
 	has_attached_file :photo,
                     :storage => :s3, :s3_credentials => S3_CREDENTIALS,
                     :path => "/system/:class/:id/:style/:basename.:extension"
 
-  validates_attachment_size :photo, :in => 0..100.kilobytes
+  validates_attachment_size :photo, :in => 0..100.kilobytes, :message => "deve ser menor do que 100KB"
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
 	def self.paginar(param)

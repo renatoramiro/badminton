@@ -1,5 +1,12 @@
 <div class="offset1 span8">
   <h1>Administracao#index</h1>
+  <p>
+    <% if current_user.logotipo? %>
+      <%= image_tag current_user.logotipo.url, :class => "logotipo" %>
+    <% else %>
+      <%= image_tag "no-image.png", :class => "logotipo" %>
+    <% end -%>
+  </p>
   <div class="row" style="margin-top: 20px;">
   	<div class="span2 alert alert-block">
   		<%= link_to "Atletas", atletas_path, :class => "btn btn-large" %>

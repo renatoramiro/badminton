@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120613185640) do
+ActiveRecord::Schema.define(:version => 20120616150615) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20120613185640) do
     t.string   "nome"
     t.date     "data_de_nascimento"
     t.string   "email"
-    t.text     "endereco_completo"
+    t.text     "rua"
     t.string   "rg"
     t.string   "cpf"
     t.text     "cursos_de_arbitragem"
@@ -64,6 +64,11 @@ ActiveRecord::Schema.define(:version => 20120613185640) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "numero"
+    t.string   "bairro"
+    t.string   "cidade"
+    t.string   "estado"
+    t.string   "cep"
   end
 
   add_index "arbitros", ["user_id"], :name => "index_arbitros_on_user_id"
@@ -73,7 +78,7 @@ ActiveRecord::Schema.define(:version => 20120613185640) do
     t.string   "nome"
     t.string   "email"
     t.date     "data_de_nascimento"
-    t.text     "endereco"
+    t.text     "rua"
     t.string   "rg"
     t.string   "cpf"
     t.string   "nome_do_pai"
@@ -90,6 +95,11 @@ ActiveRecord::Schema.define(:version => 20120613185640) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "numero"
+    t.string   "bairro"
+    t.string   "cidade"
+    t.string   "estado"
+    t.string   "cep"
   end
 
   add_index "atletas", ["user_id"], :name => "index_atletas_on_user_id"
@@ -111,7 +121,7 @@ ActiveRecord::Schema.define(:version => 20120613185640) do
     t.string   "telefone"
     t.string   "celular"
     t.string   "email"
-    t.text     "endereco_completo"
+    t.text     "rua"
     t.string   "rg"
     t.string   "cpf"
     t.string   "intituicao_de_ensino"
@@ -123,6 +133,11 @@ ActiveRecord::Schema.define(:version => 20120613185640) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "numero"
+    t.string   "bairro"
+    t.string   "cidade"
+    t.string   "estado"
+    t.string   "cep"
   end
 
   add_index "tecnicos", ["user_id"], :name => "index_tecnicos_on_user_id"
@@ -140,6 +155,10 @@ ActiveRecord::Schema.define(:version => 20120613185640) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "logotipo_file_name"
+    t.string   "logotipo_content_type"
+    t.integer  "logotipo_file_size"
+    t.datetime "logotipo_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

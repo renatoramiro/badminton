@@ -1,7 +1,7 @@
 <div class="well">
   <h2>Editar Conta <%#= resource_name.to_s.humanize %></h2>
 
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
     <%= devise_error_messages! %>
 
     <div><b><%= f.label :email %></b>
@@ -16,8 +16,18 @@
     <div><b><%= f.label :password_confirmation, "Confirmação da senha" %></b>
     <%= f.password_field :password_confirmation %> <i class="paragrafo">(deixe em branco se você não quer mudar.)</i></div>
 
+    <div>
+      <%= f.label :logotipo, "Logotipo" %>
+      <%= f.file_field :logotipo %>
+    </div>
+    <div>
+      <%- unless current_user.new_record? || !current_user.logotipo? -%>
+        <%= f.check_box :logotipo_delete %> <%= f.label "Apagar logotipo:" %> <b><%= current_user.logotipo_file_name %></b>?
+      <%- end -%>
+    </div>
+
     <div><b><%= f.label :current_password, "Senha atual" %></b>
-    <%= f.password_field :current_password %> <i class="paragrafo">(precisamos da su senha atual para confirmar as mudanças)</i></div>
+    <%= f.password_field :current_password %> <i class="paragrafo">(precisamos da sua senha atual para confirmar as mudanças)</i></div>
 
     <div><%= f.submit "Atualizar", :class => "btn", :style => "margin-top: 10px;" %></div>
   <% end %>

@@ -1,19 +1,22 @@
 class Tecnico < ActiveRecord::Base
   attr_accessible :celular, :cpf, :cref,
   								:data_de_nascimento, :email,
-  								:endereco_completo, :intituicao_de_ensino,
-  								:nome, :rg, :telefone, :user_id, :photo, :image_delete
+  								:intituicao_de_ensino,
+  								:nome, :rg, :telefone, :user_id, :photo, :image_delete,
+                  :rua, :numero, :bairro, :cidade, :estado, :cep
 
 	belongs_to :user
 
   validates_presence_of :cpf, :rg, :nome, :data_de_nascimento, :celular, :cref
   validates_uniqueness_of :cpf, :cref
 
+  validates_numericality_of :numero, :greater_than => 0, message: "deve ser maior que zero."
+
   has_attached_file :photo,
                     :storage => :s3, :s3_credentials => S3_CREDENTIALS,
                     :path => "/system/:class/:id/:style/:basename.:extension"
 
-  validates_attachment_size :photo, :in => 0..100.kilobytes
+  validates_attachment_size :photo, :in => 0..100.kilobytes, :message => "deve ser menor do que 100KB"
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
   def self.paginar(param)

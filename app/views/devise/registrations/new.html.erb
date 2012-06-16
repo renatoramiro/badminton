@@ -2,7 +2,7 @@
 	<div class="well" style="margin-right: 90px;">
 		<h2>Criar Conta</h2>
 
-		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true}) do |f| %>
 		  <%= devise_error_messages! %>
 
 		  <div><%= f.label :email %>
@@ -13,7 +13,6 @@
 
 		  <div><%= f.label :password_confirmation, "Confirmar senha" %>
 		  <%= f.password_field :password_confirmation %></div>
-
 		  <br />
 		  <div><%= f.submit "Criar", :class => "btn btn-success btn-large" %></div>
 		<% end %>

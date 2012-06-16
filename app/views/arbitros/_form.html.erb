@@ -58,8 +58,28 @@
         <%= f.text_field :celular %>
       </div>
       <div class="field">
-        <%= f.label :endereco_completo, "Endereço Completo" %>
-        <%= f.text_area :endereco_completo, :cols => 80, :rows => 10 %>
+        <%= f.label :rua %>
+        <%= f.text_field :rua, placeholder: "Rua" %>
+      </div>
+      <div class="field">
+        <%= f.label :numero, "Número" %>
+        <%= f.number_field :numero, min: 0, placeholder: "Número" %>
+      </div>
+      <div class="field">
+        <%= f.label :bairro %>
+        <%= f.text_field :bairro, placeholder: "Bairro" %>
+      </div>
+      <div class="field">
+        <%= f.label :cidade %>
+        <%= f.text_field :cidade, placeholder: "Cidade" %>
+      </div>
+      <div class="field">
+        <%= f.label :estado %>
+        <%= f.text_field :estado, placeholder: "Estado" %>
+      </div>
+      <div class="field">
+        <%= f.label :cep, "CEP" %>
+        <%= f.text_field :cep, placeholder: "CEP" %>
       </div>
     </div>
   </div>
@@ -77,5 +97,6 @@ jQuery(function($){
    $("#arbitro_cpf").mask("999.999.999-99");
    $("#arbitro_telefone").mask("(99) 9999-9999");
    $("#arbitro_celular").mask("(99) 9999-9999");
+   $("#arbitro_cep").mask("99999-999");
 });
 </script>

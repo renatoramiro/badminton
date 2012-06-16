@@ -14,7 +14,7 @@
         <%- end -%>
       </div>
       <div class="field" style="margin-top: 20px;">
-        <%= f.label :codigo, "Código" %>
+        <%= f.label :codigo, "Código*" %>
         <%= f.text_field :codigo, :placeholder => "Código" %>
       </div>
       <div class="field">
@@ -28,7 +28,6 @@
       <div class="field">
         <%= f.label :categoria %>
         <%= f.select(:categoria, @categorias,
-                     :include_blank => true,
                      :prompt => "Selecione a categoria") %>
       </div>
       <div class="field">
@@ -43,14 +42,14 @@
     <div class="span4">
       <h2>Informações Pessoais</h2>
       <div class="field">
-        <%= f.label :nome %>
+        <%= f.label :nome, "Nome*" %>
         <%= f.text_field :nome, :placeholder => "Nome" %>
       </div>
       <div class="row-fluid">
         <div class="span5">
-          <%= f.label :data_de_nascimento %>
-          <%= f.date_select(:data_de_nascimento, :start_year => 1930,
-                            :prompt => { :day => 'Selecione o dia', :month => 'Selecione o mês', :year => 'Selecione o ano' },
+          <%= f.label :data_de_nascimento, "Data de nascimento*" %>
+          <%= f.date_select(:data_de_nascimento, :start_year => 70.years.ago.year, :end_year => Date.today.year,
+                            :prompt => { :day => 'Dia', :month => 'Mês', :year => 'Ano' },
                             :order => [:day, :month, :year]) %></div>
       </div>
       <div class="field">
@@ -58,25 +57,19 @@
         <%= f.text_field :nome_do_pai, :placeholder => "Nome do pai" %>
       </div>
       <div class="field">
-        <%= f.label :nome_da_mae, "Nome da mãe" %>
+        <%= f.label :nome_da_mae, "Nome da mãe*" %>
         <%= f.text_field :nome_da_mae, :placeholder => "Nome da mãe" %>
       </div>
       <div class="field">
-        <%= f.label :endereco, "Endereço Completo" %>
-        <%= f.text_area :endereco, :cols => 10, :rows => 4, :placeholder => "Endereço Completo" %>
-      </div>
-    </div>
-    <div class="span4" style="margin-top: 39px;">
-      <div class="field">
-        <%= f.label :email %>
+        <%= f.label :email, "Email*" %>
         <%= f.text_field :email, :placeholder => "Email" %>
       </div>
       <div class="field">
-        <%= f.label :rg, "RG" %>
+        <%= f.label :rg, "RG*" %>
         <%= f.text_field :rg, :placeholder => "RG" %>
       </div>
       <div class="field">
-        <%= f.label :cpf, "CPF" %>
+        <%= f.label :cpf, "CPF*" %>
         <%= f.text_field :cpf, :placeholder => "CPF" %>
       </div>
       <div class="field">
@@ -84,8 +77,35 @@
         <%= f.text_field :telefone, :placeholder => "Telefone" %>
       </div>
       <div class="field">
-        <%= f.label :celular %>
+        <%= f.label :celular, "Celular*" %>
         <%= f.text_field :celular, :placeholder => "Celular" %>
+      </div>
+    </div>
+    <div class="span4">
+      <h2>Endereço</h2>
+      <div class="field">
+        <%= f.label :rua, "Rua" %>
+        <%= f.text_field :rua, :placeholder => "Rua" %>
+      </div>
+      <div class="field">
+        <%= f.label :numero, "Número" %>
+        <%= f.number_field :numero, :min => 0, :placeholder => "Número" %>
+      </div>
+      <div class="field">
+        <%= f.label :bairro, "Bairro" %>
+        <%= f.text_field :bairro, :placeholder => "Bairro" %>
+      </div>
+      <div class="field">
+        <%= f.label :cidade %>
+        <%= f.text_field :cidade, :placeholder => "Cidade" %>
+      </div>
+      <div class="field">
+        <%= f.label :estado %>
+        <%= f.text_field :estado, :placeholder => "Estado" %>
+      </div>
+      <div class="field">
+        <%= f.label :cep, "CEP" %>
+        <%= f.text_field :cep, :placeholder => "CEP" %>
       </div>
     </div>
   </div>
@@ -103,5 +123,6 @@ jQuery(function($){
    $("#atleta_cpf").mask("999.999.999-99");
    $("#atleta_telefone").mask("(99) 9999-9999");
    $("#atleta_celular").mask("(99) 9999-9999");
+   $("#atleta_cep").mask("99999-999");
 });
 </script>
