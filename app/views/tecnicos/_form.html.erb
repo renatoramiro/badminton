@@ -9,7 +9,8 @@
       </div>
       <div class="field">
         <%- unless @tecnico.new_record? || !@tecnico.photo? -%>
-          <%= f.check_box :image_delete %> <%= f.label "Apagar imagem:" %> <b><%= @tecnico.photo_file_name %></b>?
+          <%= image_tag @tecnico.photo.url, :class => "image" %>
+          <%= f.check_box :image_delete %> <%= f.label "Apagar imagem?" %> <b>
         <%- end -%>
       </div>
       <div class="field" style="margin-top: 20px;">
@@ -25,34 +26,34 @@
       <h2>Informações Pessoais</h2>
       <div class="field">
           <%= f.label :nome %>
-          <%= f.text_field :nome %>
+          <%= f.text_field :nome, :placeholder => "Nome" %>
         </div>
         <div class="field">
           <%= f.label :data_de_nascimento %>
           <%= f.date_select :data_de_nascimento, :order => [:day, :month, :year], :start_year => 1930,
-                            :prompt => { :day => 'Selecione o dia', :month => 'Selecione o mês', :year => 'Selecione o ano' } %>
+                            :prompt => { :day => 'Dia', :month => 'Mês', :year => 'Ano' } %>
         </div>
         <div class="field">
           <%= f.label :rg, "RG" %>
-          <%= f.text_field :rg %>
+          <%= f.text_field :rg, :placeholder => "RG" %>
         </div>
         <div class="field">
           <%= f.label :cpf, "CPF" %>
-          <%= f.text_field :cpf %>
+          <%= f.text_field :cpf, :placeholder => "CPF" %>
         </div>
         <div class="field">
           <%= f.label :email %>
-          <%= f.text_field :email %>
+          <%= f.text_field :email, :placeholder => "Email" %>
         </div>
       </div>
       <div class="span4" style="margin-top: 42px;">
         <div class="field">
           <%= f.label :telefone %>
-          <%= f.text_field :telefone %>
+          <%= f.text_field :telefone, :placeholder => "Telefone" %>
         </div>
         <div class="field">
           <%= f.label :celular %>
-          <%= f.text_field :celular %>
+          <%= f.text_field :celular, :placeholder => "Celular" %>
         </div>
         <div class="field">
           <%= f.label :rua %>
@@ -61,6 +62,10 @@
         <div class="field">
           <%= f.label :numero, "Número" %>
           <%= f.number_field :numero, :min => 0, placeholder: "Número" %>
+        </div>
+        <div class="field">
+          <%= f.label :complemento, "Complemento" %>
+          <%= f.text_field :complemento, :placeholder => "Complemento" %>
         </div>
         <div class="field">
           <%= f.label :bairro %>

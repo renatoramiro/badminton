@@ -1,37 +1,82 @@
+<script type="text/javascript">
+$('#senha').modal('hide');
+$('#logotipo').modal('hide');
+</script>
+
 <div class="well">
   <h2>Editar Conta <%#= resource_name.to_s.humanize %></h2>
-
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
-    <%= devise_error_messages! %>
-
-    <div><b><%= f.label :email %></b>
-    <%= f.email_field :email %></div>
-
-    <div><b><%= f.label :password, "Senha" %></b>
-    <%= f.password_field :password, :autocomplete => "off" %></div>
-
-    <div><b><%= f.label :password_confirmation, "Confirmação da senha" %></b>
-    <%= f.password_field :password_confirmation %> <i class="paragrafo">(deixe em branco se você não quer mudar.)</i></div>
-
-    <div>
-      <%= f.label :logotipo, "Logotipo" %>
-      <%= f.file_field :logotipo %>
-    </div>
-    <div>
-      <%- unless current_user.new_record? || !current_user.logotipo? -%>
-        <%= f.check_box :logotipo_delete %> <%= f.label "Apagar logotipo:" %> <b><%= current_user.logotipo_file_name %></b>?
-      <%- end -%>
-    </div>
-
-    <div><b><%= f.label :current_password, "Senha atual" %></b>
-    <%= f.password_field :current_password %> <i class="paragrafo">(precisamos da sua senha atual para confirmar as mudanças)</i></div>
-
-    <div><%= f.submit "Atualizar", :class => "btn", :style => "margin-top: 10px;" %></div>
-  <% end %>
+  <div style="margin-bottom: 30px;">
+    <a class="btn" data-toggle="modal" href="#senha" >Alterar Senha</a>
+    <a class="btn" data-toggle="modal" href="#logotipo" >Alterar logo</a>
+  </div>
 
   <h3>Cancelar minha conta</h3>
 
-  <p>Não está feliz? <%= link_to "Cancelar minha conta", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+  <p>Não está feliz? <%= link_to "Cancelar minha conta.", registration_path(resource_name), :confirm => "Você tem certeza?", :method => :delete %></p>
 
   <%= link_to "Voltar", :back %>
+</div>
+
+<div class="modal hide" id="senha" style="width: 700px">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3>Alterar Senha</h3>
+  </div>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
+  <div class="modal-body">
+      <%= devise_error_messages! %>
+
+      <div><b><%= f.label :password, "Nova Senha", :class => "black" %></b>
+      <%= f.password_field :password, :autocomplete => "off" %></div>
+
+      <div><b><%= f.label :password_confirmation, "Confirmação da Nova Senha", :class => "black" %></b>
+      <%= f.password_field :password_confirmation %></div>
+
+      <div><b><%= f.label :current_password, "Senha atual", :class => "black" %></b>
+      <%= f.password_field :current_password %> <i class="paragrafo black">(Digite sua senha atual para confirmar as mudanças)</i></div>
+  </div>
+  <div class="modal-footer">
+    <div>
+      <%= f.submit "Atualizar", :class => "btn" %>
+      <a href="#" class="btn btn-danger" data-dismiss="modal">Cancelar</a>
+    </div>
+  </div>
+  <% end -%>
+</div>
+
+
+<div class="modal hide" id="logotipo" style="width: 700px">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3>Alterar Logotipo</h3>
+  </div>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
+  <div class="modal-body">
+      <%= devise_error_messages! %>
+
+      <div>
+        <%= f.label :logotipo, "Logotipo", :class => "black" %>
+        <%= f.file_field :logotipo %>
+      </div>
+      <div>
+        <%- unless current_user.new_record? || !current_user.logotipo? -%>
+          <div>
+            <%= image_tag current_user.logotipo.url, :class => "logotipo" %>
+          </div>
+          <div>
+            <%= f.check_box :logotipo_delete %><%= f.label "Apagar logotipo?", :class => "black" %>
+          </div>
+        <%- end -%>
+      </div>
+
+      <div><b><%= f.label :current_password, "Senha atual", :class => "black" %></b>
+      <%= f.password_field :current_password %> <i class="paragrafo black">(Digite sua senha atual para confirmar as mudanças)</i></div>
+  </div>
+  <div class="modal-footer">
+    <div>
+      <%= f.submit "Atualizar", :class => "btn" %>
+      <a href="#" class="btn btn-danger" data-dismiss="modal">Cancelar</a>
+    </div>
+  </div>
+  <% end -%>
 </div>

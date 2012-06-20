@@ -3,7 +3,7 @@ class Tecnico < ActiveRecord::Base
   								:data_de_nascimento, :email,
   								:intituicao_de_ensino,
   								:nome, :rg, :telefone, :user_id, :photo, :image_delete,
-                  :rua, :numero, :bairro, :cidade, :estado, :cep
+                  :rua, :numero, :bairro, :cidade, :estado, :cep, :complemento
 
 	belongs_to :user
 

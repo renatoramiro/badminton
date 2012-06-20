@@ -50,7 +50,7 @@
 
       <p>
         <b>Endereço completo:</b>
-        <%= "#{@tecnico.rua}, #{@tecnico.numero}, #{@tecnico.bairro}, #{@tecnico.cidade}, #{@tecnico.estado} - #{@tecnico.cep}" %>
+        <%= "#{@tecnico.rua}, #{@tecnico.numero}, #{@tecnico.bairro}, #{@tecnico.cidade}, #{@tecnico.estado} - #{@tecnico.cep} (#{@tecnico.complemento unless @tecnico.complemento.nil?})" %>
       </p>
 
       <p>

@@ -6,7 +6,7 @@ class Atleta < ActiveRecord::Base
   								:ranking, :rg, :modalidade_ids,
   								:celular, :telefone,
   								:user_id, :photo, :image_delete,
-                  :rua, :numero, :bairro, :cidade, :estado, :cep
+                  :rua, :numero, :bairro, :cidade, :estado, :cep, :complemento
   								
 	has_and_belongs_to_many :modalidades
 

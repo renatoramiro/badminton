@@ -9,7 +9,8 @@
       </div>
       <div class="field">
         <%- unless @arbitro.new_record? || !@arbitro.photo? -%>
-          <%= f.check_box :image_delete %> <%= f.label "Apagar imagem:" %> <b><%= @arbitro.photo_file_name %></b>?
+          <%= image_tag @arbitro.photo.url, :class => "image" %>
+          <%= f.check_box :image_delete %> <%= f.label "Apagar imagem?" %>
         <%- end -%>
       </div>
       <div class="field" style="margin-top: 20px;">
@@ -32,7 +33,7 @@
       <div class="field">
         <%= f.label :data_de_nascimento %>
         <%= f.date_select(:data_de_nascimento, :start_year => 1930,
-                              :prompt => { :day => 'Selecione o dia', :month => 'Selecione o mês', :year => 'Selecione o ano' },
+                              :prompt => { :day => 'Dia', :month => 'Mês', :year => 'Ano' },
                               :order => [:day, :month, :year]) %>
       </div>
       <div class="field">
@@ -64,6 +65,10 @@
       <div class="field">
         <%= f.label :numero, "Número" %>
         <%= f.number_field :numero, min: 0, placeholder: "Número" %>
+      </div>
+      <div class="field">
+        <%= f.label :complemento, "Complemento" %>
+        <%= f.text_field :complemento, :placeholder => "Complemento" %>
       </div>
       <div class="field">
         <%= f.label :bairro %>

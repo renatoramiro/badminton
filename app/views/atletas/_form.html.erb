@@ -10,7 +10,8 @@
       </div>
       <div class="field">
         <%- unless @atleta.new_record? || !@atleta.photo? -%>
-          <%= f.check_box :image_delete %> <%= f.label "Apagar imagem:" %> <b><%= @atleta.photo_file_name %></b>?
+          <%= image_tag @atleta.photo.url, :class => "image" %>
+          <%= f.check_box :image_delete %> <%= f.label "Apagar esta imagem?" %>
         <%- end -%>
       </div>
       <div class="field" style="margin-top: 20px;">
@@ -90,6 +91,10 @@
       <div class="field">
         <%= f.label :numero, "Número" %>
         <%= f.number_field :numero, :min => 0, :placeholder => "Número" %>
+      </div>
+      <div class="field">
+        <%= f.label :complemento, "Complemento" %>
+        <%= f.text_field :complemento, :placeholder => "Complemento" %>
       </div>
       <div class="field">
         <%= f.label :bairro, "Bairro" %>

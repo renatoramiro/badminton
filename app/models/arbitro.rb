@@ -2,7 +2,7 @@ class Arbitro < ActiveRecord::Base
   attr_accessible :ano_do_curso_de_arbitragem, :cpf, :cursos_de_arbitragem,
   								:data_de_nascimento, :email, :nome, :rg,
   								:telefone, :celular, :user_id, :photo, :image_delete,
-                  :rua, :numero, :bairro, :cidade, :estado, :cep
+                  :rua, :numero, :bairro, :cidade, :estado, :cep, :complemento
 
 	belongs_to :user
 

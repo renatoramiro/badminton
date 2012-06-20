@@ -68,7 +68,7 @@
 
       <p>
         <b>Endereço completo:</b>
-        <%= "#{@atleta.rua}, #{@atleta.numero}, #{@atleta.bairro}, #{@atleta.cidade}, #{@atleta.estado} - #{@atleta.cep}" %>
+        <%= "#{@atleta.rua}, #{@atleta.numero}, #{@atleta.bairro}, #{@atleta.cidade}, #{@atleta.estado} - #{@atleta.cep} (#{@atleta.complemento unless @atleta.complemento.nil?})" %>
       </p>
 
       <p>

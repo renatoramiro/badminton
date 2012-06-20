@@ -50,7 +50,7 @@
 
       <p>
         <b>Endereço completo:</b>
-        <%= "#{@arbitro.rua}, #{@arbitro.numero}, #{@arbitro.bairro}, #{@arbitro.cidade}, #{@arbitro.estado} - #{@arbitro.cep}" %>
+        <%= "#{@arbitro.rua}, #{@arbitro.numero}, #{@arbitro.bairro}, #{@arbitro.cidade}, #{@arbitro.estado} - #{@arbitro.cep} (#{@arbitro.complemento unless @arbitro.complemento.nil?})" %>
       </p>
 
       <p>
