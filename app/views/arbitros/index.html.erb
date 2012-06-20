@@ -13,7 +13,7 @@
     <th>Nome</th>
     <th>Data de nascimento</th>
     <th>Email</th>
-    <th>Telefone</th>
+    <th>Celular</th>
     <th>Possui foto?</th>
     <th></th>
     <th></th>
@@ -23,9 +23,9 @@
 <% @arbitros.each do |arbitro| %>
   <tr>
     <td><%= arbitro.nome %></td>
-    <td><%= arbitro.data_de_nascimento.strftime("%d-%m-%Y") %></td>
+    <td><%= arbitro.data_de_nascimento.strftime("%d/%m/%Y") %></td>
     <td><%= arbitro.email %></td>
-    <td><%= arbitro.telefone %></td>
+    <td><%= arbitro.celular %></td>
     <td>
       <% if arbitro.photo? %>
       <label class="label label-success" style="padding-left: 22px; padding-top: 3px;">SIM</label>

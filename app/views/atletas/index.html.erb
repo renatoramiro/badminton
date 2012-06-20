@@ -14,7 +14,7 @@
     <th>Código</th>
     <th>Nome</th>
     <th>Data de Nascimento</th>
-    <th>Telefone</th>
+    <th>Celular</th>
     <th>Nome da mãe</th>
     <th>Possiu foto?</th>
     <th></th>
@@ -26,8 +26,8 @@
   <tr>
     <td><%= atleta.codigo %></td>
     <td><%= atleta.nome %></td>
-    <td><%= atleta.data_de_nascimento.strftime("%d-%m-%Y") %></td>
-    <td><%= atleta.telefone %></td>
+    <td><%= atleta.data_de_nascimento.strftime("%d/%m/%Y") %></td>
+    <td><%= atleta.celular %></td>
     <td><%= atleta.nome_da_mae %></td>
     <td>
       <% if atleta.photo? %>
