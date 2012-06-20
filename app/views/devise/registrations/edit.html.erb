@@ -19,7 +19,7 @@ $('#logotipo').modal('hide');
 
 <div class="modal hide" id="senha" style="width: 700px">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">×</button>
+    <button type="button" class="close" data-dismiss="modal"><i class="icon-remove" style="margin-top: 5px;"></i></button>
     <h3>Alterar Senha</h3>
   </div>
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
@@ -47,7 +47,7 @@ $('#logotipo').modal('hide');
 
 <div class="modal hide" id="logotipo" style="width: 700px">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">×</button>
+    <button type="button" class="close" data-dismiss="modal"><i class="icon-remove" style="margin-top: 5px;"></i></button>
     <h3>Alterar Logotipo</h3>
   </div>
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
