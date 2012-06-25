@@ -13,19 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20120620151300) do
 
-  create_table "admin_notes", :force => true do |t|
-    t.string   "resource_id",     :null => false
-    t.string   "resource_type",   :null => false
-    t.integer  "admin_user_id"
-    t.string   "admin_user_type"
-    t.text     "body"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  add_index "admin_notes", ["admin_user_type", "admin_user_id"], :name => "index_admin_notes_on_admin_user_type_and_admin_user_id"
-  add_index "admin_notes", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
-
   create_table "arbitros", :force => true do |t|
     t.string   "nome"
     t.date     "data_de_nascimento"

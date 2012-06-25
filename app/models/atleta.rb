@@ -32,7 +32,7 @@ class Atleta < ActiveRecord::Base
   end
 
   def self.search(busca)
-    where("nome ILIKE :termo OR nome_da_mae ILIKE :termo OR nome_do_pai ILIKE :termo OR codigo ILIKE :termo", 
+    where("nome LIKE :termo OR nome_da_mae LIKE :termo OR nome_do_pai LIKE :termo OR codigo LIKE :termo", 
           :termo => "%#{busca}%")
   end
 

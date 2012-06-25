@@ -22,7 +22,7 @@ class Arbitro < ActiveRecord::Base
 	end
 
 	def self.search(busca)
-    where("nome ILIKE :termo OR celular ILIKE :termo OR cpf ILIKE :termo", :termo => "%#{busca}%")
+    where("nome LIKE :termo OR celular LIKE :termo OR cpf LIKE :termo", :termo => "%#{busca}%")
   end
 
   before_save :destroy_image?
