@@ -64,4 +64,23 @@ Badminton::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  require 'tlsmail'
+  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.raise_delivery_errors = true
+  ActionMailer::Base.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => "587",
+      :domain => "gmail.com",
+      :enable_starttls_auto => true,
+      :authentication => :login,
+      :user_name => "your-email@gmail.com",
+      :password => "your-password"
+  }
+
+config.action_mailer.raise_delivery_errors = true
 end

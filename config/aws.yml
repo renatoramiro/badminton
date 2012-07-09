@@ -1,0 +1,9 @@
+# config/aws.yml
+production:
+  access_key_id: "your-access-key-id"
+  secret_access_key: "your-secret-access-key"
+  bucket: your-bucket
+development:
+  access_key_id: "your-access-key-id"
+  secret_access_key: "your-secret-access-key"
+  bucket: your-bucket

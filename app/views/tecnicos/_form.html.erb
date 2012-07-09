@@ -9,8 +9,8 @@
       </div>
       <div class="field">
         <%- unless @tecnico.new_record? || !@tecnico.photo? -%>
-          <%= image_tag @tecnico.photo.url, :class => "image" %>
-          <%= f.check_box :image_delete %> <%= f.label "Apagar imagem?" %> <b>
+          <%= image_tag @tecnico.photo.url, :class => "image" %><br />
+          <%= f.check_box :image_delete %> <span style="color: #fff">Selecione para apagar a imagem.</span>
         <%- end -%>
       </div>
       <div class="field" style="margin-top: 20px;">

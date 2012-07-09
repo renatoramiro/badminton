@@ -12,6 +12,7 @@ gem 'will_paginate', ">=3.0.pre2"
 gem 'paperclip'
 gem 'aws-s3'
 gem 'aws-sdk'
+gem 'tlsmail'
 
 # Gems used only for assets and not required
 # in production environments by default.

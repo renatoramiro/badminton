@@ -1,6 +1,6 @@
 <script type="text/javascript">
-$('#senha').modal('hide');
-$('#logotipo').modal('hide');
+$('#senha').modal();
+$('#logotipo').modal();
 </script>
 
 <div class="well">
@@ -64,7 +64,8 @@ $('#logotipo').modal('hide');
             <%= image_tag current_user.logotipo.url, :class => "logotipo" %>
           </div>
           <div>
-            <%= f.check_box :logotipo_delete %><%= f.label "Apagar logotipo?", :class => "black" %>
+            <%= f.check_box :logotipo_delete %>
+            <span class="black">Selecione para apagar o logotipo.</span>
           </div>
         <%- end -%>
       </div>
