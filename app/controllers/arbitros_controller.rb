@@ -12,6 +12,15 @@ class ArbitrosController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @arbitros }
+      format.xls do
+        render :xls => @arbitros,
+                       :columns => [ :nome, :data_de_nascimento, :rg, :cpf, :email, :telefone, :celular,
+                                    :rua, :numero, :complemento, :bairro, :cidade, :estado, :cep,
+                                    :ano_do_curso_de_arbitragem, :cursos_de_arbitragem ],
+                       :headers => %w[ Nome Data\ de\ Nascimento RG CPF Email Telefone Celular 
+                                      Rua Número Complemento Bairro Cidade Estado CEP
+                                      Ano\ do\ Curso\ de\ Arbitragem Cursos\ de\ Arbitragem ]
+      end
     end
   end
 

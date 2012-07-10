@@ -12,6 +12,14 @@ class TecnicosController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tecnicos }
+      format.xls do
+        render :xls => @tecnicos,
+                       :columns => [ :nome, :data_de_nascimento, :rg, :cpf, :email, :telefone, :celular,
+                                    :rua, :numero, :complemento, :bairro, :cidade, :estado, :cep,
+                                    :intituicao_de_ensino, :cref ],
+                       :headers => %w[ Nome Data\ de\ Nascimento RG CPF Email Telefone Celular Rua Número Complemento
+                                      Bairro Cidade Estado CEP Instituicao\ de\ Ensino CREF ]
+      end
     end
   end
 

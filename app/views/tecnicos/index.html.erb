@@ -8,6 +8,9 @@
         <%= submit_tag "Buscar", :class => "btn" %> 
     <% end %>
 </div>
+<% if @tecnicos.empty? %>
+<p>Nenhum ténico cadastrado.</p>
+<% else %>
 <table class="table">
   <tr>
     <th>Nome</th>
@@ -35,14 +38,15 @@
     </td>
     <td><%= link_to 'Exibir', tecnico, :class => "btn btn-primary btn-mini" %></td>
     <td><%= link_to 'Editar', edit_tecnico_path(tecnico), :class => "btn btn-warning btn-mini" %></td>
-    <td><%= link_to 'Apagar', tecnico, confirm: 'Tem certeza?', method: :delete, :class => "btn btn-danger btn-mini" %></td>
+    <td><%= link_to 'Apagar', tecnico, confirm: 'Você tem certeza?', method: :delete, :class => "btn btn-danger btn-mini" %></td>
   </tr>
 <% end %>
 </table>
 <div style="margin-left: 280px;">
     <%= will_paginate(@tecnicos, :class => "pagination btn-mini", :previous_label => "« Anterior", :next_label => "Próxima »") %>
 </div>
+<% end -%>
 <br />
-
 <%= link_to 'Adicionar Técnico', new_tecnico_path, :class => "label label-info" %> | 
+<%= link_to "Exportar para Excel", url_for( :format => :xls ) , :class => "label label-warning" %> | 
 <%= link_to "Relatório de Técnicos", relatorio_tecnicos_path, :class => 'btn btn-success' %>

@@ -15,6 +15,15 @@ class AtletasController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @atletas }
+      format.xls do
+        render :xls => @atletas,
+                       :columns => [ :nome, :data_de_nascimento, :nome_do_pai, :nome_da_mae, :rg, :cpf, :email, :telefone, :celular,
+                                    :rua, :numero, :complemento, :bairro, :cidade, :estado, :cep,
+                                    :codigo, :entidade_filiada, :ranking, :categoria ],
+                       :headers => %w[ Nome Data\ de\ Nascimento Nome\ do\ Pai Nome\ da\ Mãe RG CPF Email Telefone Celular 
+                                      Rua Número Complemento Bairro Cidade Estado CEP
+                                      Código Entidade\ Filiada Ranking Categoria ]
+      end
     end
   end
 

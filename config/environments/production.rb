@@ -74,13 +74,13 @@ Badminton::Application.configure do
   ActionMailer::Base.raise_delivery_errors = true
   ActionMailer::Base.smtp_settings = {
       :address => "smtp.gmail.com",
-      :port => "587",
+      :port => "25",
       :domain => "gmail.com",
       :enable_starttls_auto => true,
       :authentication => :login,
-      :user_name => "your-email@gmail.com",
+      :user_name => "your-mail@gmail.com",
       :password => "your-password"
   }
 
-config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = true
 end

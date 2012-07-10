@@ -8,6 +8,9 @@
         <%= submit_tag "Buscar", :class => "btn" %> 
     <% end %>
 </div>
+<% if @arbitros.empty? %>
+<p>Nenhum árbitro cadastrado.</p>
+<% else %>
 <table class="table">
   <tr>
     <th>Nome</th>
@@ -35,14 +38,15 @@
     </td>
     <td><%= link_to 'Exibir', arbitro, :class => "btn btn-primary btn-mini" %></td>
     <td><%= link_to 'Editar', edit_arbitro_path(arbitro), :class => "btn btn-warning btn-mini" %></td>
-    <td><%= link_to 'Apagar', arbitro, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger btn-mini" %></td>
+    <td><%= link_to 'Apagar', arbitro, confirm: 'Você tem certeza?', method: :delete, :class => "btn btn-danger btn-mini" %></td>
   </tr>
 <% end %>
 </table>
 <div class="offset4">
     <%= will_paginate(@arbitros, :class => "pagination btn-mini", :previous_label => "« Anterior", :next_label => "Próxima »") %>
 </div>
+<% end -%>
 <br />
-
 <%= link_to 'Adicionar Árbitro', new_arbitro_path, :class => "label label-info" %> | 
+<%= link_to "Exportar para Excel", url_for( :format => :xls ) , :class => "label label-warning" %> | 
 <%= link_to "Relatório de Árbitros", relatorio_arbitros_path, :class => 'btn btn-success' %>

@@ -1,5 +1,9 @@
 Badminton::Application.routes.draw do
 
+  get "receber_email/success"
+  get "receber_email/password"
+  get "receber_email/confirmation"
+
   get "relatorio/atleta"
 
   get "relatorio/arbitro"
@@ -14,7 +18,7 @@ Badminton::Application.routes.draw do
 
   get "administracao/index"
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => :registrations, :passwords => :passwords, :confirmations => :confirmations }
 
   resources :tecnicos
 

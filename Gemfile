@@ -13,6 +13,7 @@ gem 'paperclip'
 gem 'aws-s3'
 gem 'aws-sdk'
 gem 'tlsmail'
+gem 'to_xls', '~> 1.0.0'
 
 # Gems used only for assets and not required
 # in production environments by default.

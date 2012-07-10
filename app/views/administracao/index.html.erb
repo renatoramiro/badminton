@@ -1,5 +1,5 @@
 <div class="offset1 span8">
-  <h1>Administracao#index</h1>
+  <h1>Administração#início</h1>
   <p>
     <% if current_user.logotipo? %>
       <%= image_tag current_user.logotipo.url, :class => "logotipo" %>
@@ -9,16 +9,16 @@
   </p>
   <div class="row" style="margin-top: 20px;">
   	<div class="span2 alert alert-block">
+      <p>Listar, Editar e Adicionar novo atleta.&nbsp;&nbsp;</p>
   		<%= link_to "Atletas", atletas_path, :class => "btn btn-large" %>
-  		<p>Listar, Editar e Adicionar novo atleta.&nbsp;&nbsp;</p>
   	</div>
   	<div class="span2 alert alert-info alert-block">
+      <p>Listar, editar e adicionar novo árbitro.</p>
   		<%= link_to "Árbitros", arbitros_path, :class => "btn btn-large" %>
-  		<p>Listar, editar e adicionar novo árbitro.</p>
   	</div>
   	<div class="span2 alert alert-block">
+      <p>Listar, editar e adicionar novo técnico.</p>
   		<%= link_to "Técnicos", tecnicos_path, :class => "btn btn-large" %>
-  		<p>Listar, editar e adicionar novo técnico.</p>
   	</div>
   </div>
 </div>

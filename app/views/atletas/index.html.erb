@@ -8,7 +8,9 @@
         <%= submit_tag "Buscar", :class => "btn" %> 
     <% end %>
 </div>
-
+<% if @atletas.empty? %>
+<p>Nenhum atleta cadastrado.</p>
+<% else %>
 <table class="table">
   <tr>
     <th>Código</th>
@@ -16,7 +18,7 @@
     <th>Data de Nascimento</th>
     <th>Celular</th>
     <th>Nome da mãe</th>
-    <th>Possiu foto?</th>
+    <th>Possui foto?</th>
     <th></th>
     <th></th>
     <th></th>
@@ -38,17 +40,19 @@
     </td>
     <td><%= link_to 'Exibir', atleta, :class => "btn btn-primary btn-mini" %></td>
     <td><%= link_to 'Editar', edit_atleta_path(atleta), :class => "btn btn-warning btn-mini" %></td>
-    <td><%= link_to 'Apagar', atleta, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger btn-mini" %></td>
+    <td><%= link_to 'Apagar', atleta, confirm: 'Você tem certeza?', method: :delete, :class => "btn btn-danger btn-mini" %></td>
   </tr>
 <% end %>
 </table>
 <div class="offset4">
     <%= will_paginate(@atletas, :class => "pagination btn-mini", :previous_label => "« Anterior", :next_label => "Próxima »") %>
 </div>
+<% end %>
 <br />
 <div>
     <p>
       <%= link_to 'Adicionar Atleta', new_atleta_path,  :class => "label label-info" %> | 
+      <%= link_to "Exportar para Excel", url_for( :format => :xls ) , :class => "label label-warning" %> | 
       <%= link_to "Relatório de Atletas", relatorio_atletas_path, :class => 'btn btn-success' %>
     </p>
 </div>

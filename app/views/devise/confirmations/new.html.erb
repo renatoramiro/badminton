@@ -1,12 +1,12 @@
-<h2>Reenviar instruções confirmação</h2>
+<h2>Reenviar instruções de confirmação</h2>
 
 <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
+  <div><%= f.label :email %>
   <%= f.email_field :email %></div>
 
-  <div><%= f.submit "Reenviar instruções confirmação" %></div>
+  <div><%= f.submit "Reenviar instruções de confirmação", :class => "btn" %></div>
 <% end %>
-
+<p style="color: #B40404;">OBS.: verifique sua Caixa de Spam senão localizar o email na Caixa de Entrada.</p>
 <%= render "links" %>
